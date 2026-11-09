@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico Bloque I · Aprueba Auxiliar del Estado</title>
+<meta name="description" content="25 preguntas de exámenes oficiales de Auxiliar Administrativo del Estado. Descubre cuántos sacarías hoy y cuánto te falta para la nota de corte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+:root{--bg:#F7F8FA;--surface:#FFFFFF;--ink:#0E1A2B;--muted:#3B4658;--soft:#5A6578;--line:#E3E6EB;--accent:#C2410C;--accent-light:#FB923C;--ok:#0F766E;--ok-soft:#DDF3EF;--bad:#B42318;--bad-soft:#FDE7E5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}
+header{background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{max-width:760px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;text-decoration:none}
+.brand span{color:var(--accent)}
+main{max-width:760px;margin:0 auto;padding:32px 20px 72px}
+h1,h2{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;line-height:1.1;margin:0}
+h1{font-size:clamp(32px,6vw,44px)}
+h2{font-size:28px}
+.lead{color:var(--muted);font-size:19px;margin:16px 0 28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:12px;border:none;background:var(--accent);color:#fff;font:600 18px Inter,sans-serif;cursor:pointer;text-decoration:none}
+.btn.dark{background:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--accent-light);outline-offset:2px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;padding:0;list-style:none}
+.facts li{background:#EEF1F5;border-radius:999px;padding:6px 14px;font-size:15px;font-weight:600;color:var(--muted)}
+.progress{display:flex;justify-content:space-between;font-size:14px;color:var(--soft);margin-bottom:8px;font-variant-numeric:tabular-nums}
+.track{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:24px}
+.track span{display:block;height:100%;background:var(--accent);transition:width .25s}
+.meta{font-size:13px;font-weight:600;color:var(--soft);margin:0 0 8px}
+.q{font-size:20px;font-weight:600;line-height:1.4;margin:0 0 20px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font:16px/1.45 Inter,sans-serif;color:var(--ink);cursor:pointer}
+.opt:hover{border-color:var(--soft)}
+.opt b{flex:none;width:26px;height:26px;border-radius:7px;background:#EEF1F5;display:grid;place-items:center;font-size:14px}
+.skip{margin-top:14px;background:none;border:none;color:var(--soft);font:500 15px Inter,sans-serif;text-decoration:underline;cursor:pointer;padding:6px 0}
+.big{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:64px;line-height:1}
+.result-head{background:var(--ink);color:#fff;border-radius:20px;padding:28px;margin-bottom:20px}
+.result-head p{color:#D5DCE6;margin:8px 0 0}
+.gauge{position:relative;height:12px;border-radius:999px;background:rgba(255,255,255,.14);margin:22px 0 10px}
+.gauge .fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:var(--accent-light)}
+.gauge .cut{position:absolute;top:-6px;width:3px;height:24px;border-radius:2px;background:#fff}
+.gauge-labels{display:flex;justify-content:space-between;font-size:13px;color:#B8C2D1;font-variant-numeric:tabular-nums}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0 0}
+.stats div{background:rgba(255,255,255,.08);border-radius:12px;padding:12px;text-align:center}
+.stats strong{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+.stats span{font-size:13px;color:#B8C2D1}
+.weak{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.weak li{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:16px}
+.weak li span{color:var(--bad);font-weight:600;white-space:nowrap}
+.cta{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.note{font-size:14px;color:var(--soft);margin:0}
+.review{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.rev{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--surface)}
+.rev .tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-bottom:8px}
+.rev.ok .tag{background:var(--ok-soft);color:var(--ok)}
+.rev.bad .tag{background:var(--bad-soft);color:var(--bad)}
+.rev.blank .tag{background:#EEF1F5;color:var(--soft)}
+.rev p{margin:0 0 6px;font-size:15px}
+.rev .exp{color:var(--muted)}
+details summary{cursor:pointer;font-weight:600;margin:24px 0 0}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion: reduce){.track span{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="brand" href="./">Aprueba <span>Auxiliar</span></a><span class="note">Diagnóstico Bloque I</span></div></header>
+<main>
+
+<section id="intro">
+<h1>¿Cuántos sacarías hoy en el Bloque I?</h1>
+<p class="lead">25 preguntas reales de los exámenes de Auxiliar Administrativo del Estado de 2022, 2024 y 2025. Al terminar verás tu nota estimada frente al corte de 2026 y los temas que más te restan.</p>
+<ul class="facts"><li>25 preguntas</li><li>Unos 10 minutos</li><li>Como en el examen: los fallos restan 1/3</li><li>Gratis y sin registro</li></ul>
+<button class="btn" id="start" type="button">Empezar el diagnóstico</button>
+</section>
+
+<section id="quiz" hidden>
+<div class="progress"><span id="count">Pregunta 1 de 25</span><span id="src"></span></div>
+<div class="track"><span id="trackfill" style="width:0%"></span></div>
+<div class="card">
+<p class="meta" id="topic"></p>
+<p class="q" id="question"></p>
+<div class="opts" id="opts"></div>
+<button class="skip" id="skip" type="button">Dejar en blanco (no resta)</button>
+</div>
+</section>
+
+<section id="result" hidden>
+<div class="result-head">
+<p style="margin:0;font-size:14px;font-weight:600;color:#B8C2D1">Tu resultado en el Bloque I</p>
+<div style="display:flex;align-items:baseline;gap:10px;margin-top:10px"><span class="big" id="r-net"></span><span style="font-size:18px;color:#D5DCE6">de 25 netos</span></div>
+<p id="r-msg"></p>
+<div class="gauge"><div class="fill" id="r-fill"></div><div class="cut" id="r-cut"></div></div>
+<div class="gauge-labels"><span id="r-est"></span><span style="color:#fff;font-weight:600">Corte 2026 · 29 de 60</span></div>
+<div class="stats"><div><strong id="r-ok"></strong><span>Aciertos</span></div><div><strong id="r-bad"></strong><span>Fallos</span></div><div><strong id="r-blank"></strong><span>En blanco</span></div></div>
+</div>
+
+<div class="card">
+<h2 style="font-size:22px">Lo que más te resta</h2>
+<p class="note" style="margin:6px 0 14px">Materias con fallos o preguntas en blanco.</p>
+<ul class="weak" id="r-weak"></ul>
+<div class="cta">
+<a class="btn" id="r-reserva" href="#">Reservar el precio de lanzamiento: 19,99 €</a>
+<p class="note">La app te dará cada día las preguntas que fallas y te dirá cuánto te falta. Hoy no se cobra nada.</p>
+</div>
+</div>
+
+<p class="note" style="margin-top:16px">Estimación: tu nota neta del Bloque I escalada a las 60 preguntas de la primera parte, como si en psicotécnicos rindieras igual. El corte de 2026 fue de 29 puntos netos sobre 60. Es una orientación, no una predicción.</p>
+
+<details><summary>Ver la corrección pregunta por pregunta</summary><div class="review" id="r-review"></div></details>
+
+<p style="margin-top:28px"><button class="btn ghost" id="again" type="button">Repetir el diagnóstico</button></p>
+</section>
+
+</main>
+
+<script>
+var TALLY_RESERVA = "https://tally.so/r/Vpj756";
+var CORTE = 29, TOTAL_PRIMERA = 60;
+
+var Q = [
+{t:"Constitución",y:"2025",q:"Conforme al artículo 167.1 de la Constitución Española de 1978, los proyectos de reforma constitucional deberán ser aprobados por:",o:["Mayoría absoluta de cada una de las Cámaras.","Una mayoría de dos tercios de ambas Cámaras.","Una mayoría de dos tercios del Senado y mayoría absoluta del Congreso.","Una mayoría de tres quintos de cada una de las Cámaras."],c:3,e:"Art. 167.1 CE: tres quintos de cada Cámara. Los dos tercios son del procedimiento agravado del art. 168."},
+{t:"Constitución",y:"2022",q:"Según la Constitución Española de 1978, es un derecho fundamental:",o:["El derecho a la negociación colectiva laboral.","El derecho a comunicar o recibir libremente información veraz por cualquier medio de difusión.","El derecho a contraer matrimonio con plena igualdad jurídica.","El derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona."],c:1,e:"Art. 20.1.d CE, en la Sección 1ª del Capítulo II del Título I. Matrimonio (art. 32) y negociación colectiva (art. 37) están en la Sección 2ª; el medio ambiente (art. 45), en el Capítulo III."},
+{t:"Constitución",y:"2025",q:"Conforme al artículo 8 de la Constitución Española de 1978, las Fuerzas Armadas constituidas por el Ejército de Tierra, la Armada y el Ejército del Aire, tienen como misión:",o:["Garantizar la soberanía e independencia de España.","Defender su integridad patrimonial y el ordenamiento constitucional.","Defender su integridad territorial y el ordenamiento democrático.","Garantizar la soberanía e individualidad de España."],c:0,e:"Art. 8.1 CE: garantizar la soberanía e independencia de España y defender su integridad territorial y el ordenamiento constitucional."},
+{t:"Constitución",y:"2022",q:"Conforme al artículo 55 de la Constitución Española de 1978, el derecho de los españoles a circular por el territorio nacional:",o:["Es un derecho fundamental que no puede ser suspendido.","Podrá ser suspendido para personas determinadas, en relación con las investigaciones correspondientes a la actuación de bandas armadas o elementos terroristas.","Podrá ser limitado por motivos políticos.","Podrá ser suspendido cuando se acuerde la declaración del estado de excepción o de sitio."],c:3,e:"Art. 55.1 CE incluye el art. 19 entre los derechos suspendibles en estado de excepción o de sitio. La suspensión individual del art. 55.2 no alcanza al art. 19."},
+{t:"Constitución",y:"2025",q:"Según el artículo 57 de la Constitución Española de 1978, las abdicaciones y renuncias y cualquier duda de hecho o de derecho que ocurra en el orden de sucesión a la Corona se resolverán:",o:["Por Ley ordinaria.","Por Real Decreto del Presidente del Gobierno.","Por resolución judicial o administrativa.","Por Ley orgánica."],c:3,e:"Art. 57.5 CE."},
+{t:"Constitución",y:"2024",q:"Conforme al artículo 75 de la Constitución Española de 1978, las Cámaras funcionan:",o:["En Pleno exclusivamente.","En Pleno y en Diputación Permanente.","En Pleno y en Asamblea.","En Pleno y por Comisiones."],c:3,e:"Art. 75.1 CE."},
+{t:"Constitución",y:"2022",q:"¿Cuál es la opción correcta según el artículo 99 de la Constitución Española de 1978?",o:["Si transcurrido el plazo de dos meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Congreso, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.","Si transcurrido el plazo de tres meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Congreso, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.","Si transcurrido el plazo de dos meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Senado, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso.","Si transcurrido el plazo de tres meses, a partir de la primera votación de investidura, ningún candidato hubiere obtenido la confianza del Senado, el Rey disolverá ambas Cámaras y convocará nuevas elecciones con el refrendo del Presidente del Congreso."],c:0,e:"Art. 99.5 CE: dos meses y confianza del Congreso."},
+{t:"Constitución",y:"2022",q:"Según el artículo 102 de la Constitución Española de 1978, si el Presidente del Gobierno fuere acusado de un delito contra la seguridad del Estado en el ejercicio de sus funciones, la iniciativa sólo podrá ser planteada por:",o:["La quinta parte de los miembros del Congreso y aprobada con mayoría simple.","La cuarta parte de los miembros del Congreso y aprobada con mayoría simple.","La cuarta parte de los miembros del Congreso y aprobada con mayoría absoluta.","La quinta parte de los miembros del Congreso y aprobada con mayoría absoluta."],c:2,e:"Art. 102.2 CE."},
+{t:"Constitución",y:"2024",q:"¿Cuántos miembros del Consejo General del Poder Judicial propone el Senado conforme a la Constitución Española de 1978?",o:["Dos.","Cuatro.","Cinco.","Seis."],c:1,e:"Art. 122.3 CE: cuatro a propuesta del Congreso y cuatro del Senado, entre abogados y juristas."},
+{t:"Constitución",y:"2025",q:"Conforme al artículo 123 de la Constitución Española de 1978, el Presidente del Tribunal Supremo será nombrado por:",o:["El Rey, a propuesta del Consejo General del Poder Judicial.","El Consejo General del Poder Judicial, a propuesta del Fiscal General del Estado.","El Rey, a propuesta del presidente del Consejo General del Poder Judicial.","El presidente del Consejo General del Poder Judicial, a propuesta del Rey."],c:0,e:"Art. 123.2 CE."},
+{t:"Constitución",y:"2022",q:"De acuerdo con la Constitución Española de 1978, señale cuál de las siguientes competencias puede ser asumida por las Comunidades Autónomas:",o:["Fomento y coordinación general de la investigación científica y técnica.","Ordenación del territorio, urbanismo y vivienda.","Iluminación de costas y señales marítimas.","Bases y coordinación general de la sanidad."],c:1,e:"Art. 148.1.3ª CE. Las otras tres son competencias exclusivas del Estado (art. 149.1)."},
+{t:"Defensor del Pueblo y Gobierno",y:"2022",q:"Según la Ley Orgánica 3/1981, de 6 de abril, del Defensor del Pueblo, podrá dirigirse al Defensor del Pueblo:",o:["Toda persona natural o jurídica que invoque un interés legítimo, sin restricción alguna.","Toda persona natural o jurídica que invoque un interés legítimo, siempre que sean nacionales españoles o residentes en España.","Toda persona natural que invoque un interés legítimo, pero no las personas jurídicas.","Toda persona natural que invoque un interés legítimo, excepto las personas menores de edad."],c:0,e:"Art. 10.1 LO 3/1981."},
+{t:"Defensor del Pueblo y Gobierno",y:"2025",q:"¿Cómo se lleva a cabo el nombramiento de los Secretarios de Estado conforme al artículo 15 de la Ley 50/1997, de 27 de noviembre, del Gobierno?",o:["Por el Congreso de los Diputados, a propuesta del Presidente del Gobierno.","Por el Rey, a propuesta del Presidente del Gobierno.","Por Real Decreto del Consejo de Ministros, a propuesta del Presidente del Gobierno o del miembro del Gobierno a cuyo Departamento pertenezcan.","Por Orden Ministerial, previo conocimiento del Consejo de Ministros."],c:2,e:"Art. 15.1 Ley 50/1997."},
+{t:"Organización administrativa",y:"2024",q:"Conforme a la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, las unidades administrativas a las que se les atribuyan funciones que tengan efectos jurídicos frente a terceros, o cuya actuación tenga carácter preceptivo, tendrán la consideración de:",o:["Poderes públicos.","Órganos superiores.","Unidades vinculantes.","Órganos administrativos."],c:3,e:"Art. 5.2 Ley 40/2015."},
+{t:"Organización administrativa",y:"2025",q:"Señale cuál de los siguientes NO es un elemento del Municipio, según lo dispuesto en el artículo 11 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local:",o:["La organización.","La denominación.","El territorio.","La población."],c:1,e:"Art. 11.2 Ley 7/1985: los elementos son el territorio, la población y la organización."},
+{t:"Unión Europea",y:"2024",q:"¿De cuántos órganos consta el Tribunal de Justicia de la Unión Europea?",o:["Uno, el Tribunal de Justicia.","Dos, el Tribunal de Justicia y el Consejo de Abogados.","Dos, el Tribunal General y el Consejo de Abogados.","Dos, el Tribunal de Justicia y el Tribunal General."],c:3,e:"Art. 19.1 TUE."},
+{t:"Transparencia",y:"2025",q:"¿Cómo se pueden recurrir las resoluciones dictadas en materia de acceso a la información pública conforme a la Ley 19/2013, de 9 de diciembre, de transparencia, acceso a la información pública y buen gobierno?",o:["Mediante recurso de alzada.","Mediante recurso potestativo de reposición.","Mediante recurso contencioso administrativo.","Mediante reclamación previa preceptiva ante el Consejo de Transparencia y Buen Gobierno."],c:2,e:"Art. 20.5 Ley 19/2013: recurso contencioso-administrativo directo. La reclamación ante el Consejo de Transparencia (art. 24) es potestativa, no preceptiva."},
+{t:"Procedimiento administrativo",y:"2024",q:"¿Qué establece el artículo 3 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas respecto a la capacidad de obrar de los grupos de afectados?",o:["No tendrán capacidad de obrar en el procedimiento administrativo.","Tendrán capacidad de obrar cuando una disposición de carácter general así lo declare expresamente.","Tendrán capacidad de obrar cuando un reglamento así lo declare expresamente.","Tendrán capacidad de obrar cuando la ley así lo declare expresamente."],c:3,e:"Art. 3.c Ley 39/2015."},
+{t:"Procedimiento administrativo",y:"2025",q:"¿Para cuál de las siguientes actuaciones requerirán las Administraciones Públicas a los interesados el uso obligatorio de firma, en los términos del artículo 11 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas?",o:["Interponer acciones.","Formular denuncias.","Presentar comunicaciones.","Desistir de derechos."],c:2,e:"Art. 11.2 Ley 39/2015: formular solicitudes, presentar declaraciones responsables o comunicaciones, interponer recursos, desistir de acciones y renunciar a derechos. Las opciones a y d intercambian «acciones» y «derechos»."},
+{t:"Procedimiento administrativo",y:"2024",q:"En lo que respecta a la notificación en papel y, de conformidad con el artículo 42 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, cuando la notificación se practique en el domicilio del interesado, de no hallarse presente, podrá hacerse cargo de la misma:",o:["Cualquier persona mayor de doce años que se encuentre en el domicilio y haga constar su identidad.","Cualquier persona mayor de catorce años que se encuentre en el domicilio y haga constar su identidad.","Cualquier persona mayor de dieciséis años que se encuentre en el domicilio sin ser necesario hacer constar su identidad.","Cualquier persona mayor de dieciocho años que se encuentre en el domicilio sin ser necesario hacer constar su identidad."],c:1,e:"Art. 42.2 Ley 39/2015."},
+{t:"Procedimiento administrativo",y:"2025",q:"De conformidad con la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, en los procedimientos iniciados a solicitud del interesado, ¿qué consecuencia produciría el vencimiento del plazo máximo sin haberse notificado resolución expresa?",o:["Legitimaría al interesado o interesados para entenderla estimada por silencio administrativo, excepto en los supuestos en los que una norma con rango de ley o una norma de Derecho de la Unión Europea o de Derecho internacional aplicable en España establezcan lo contrario.","El silencio tendría efecto estimatorio si se trata de un procedimiento relativo al ejercicio del derecho de petición, a que se refiere el artículo 29 de la Constitución.","Legitimaría al interesado o interesados para entenderla desestimada por silencio administrativo, excepto en los supuestos en los que una norma con rango de ley o una norma de Derecho de la Unión Europea o de Derecho internacional aplicable en España establezcan lo contrario.","En los casos de estimación por silencio administrativo, la resolución expresa posterior al vencimiento del plazo se adoptará por la Administración sin vinculación alguna al sentido del silencio."],c:0,e:"Art. 24.1 Ley 39/2015: la regla general es el silencio estimatorio. En el derecho de petición el silencio es desestimatorio."},
+{t:"Empleo público",y:"2025",q:"Señale la afirmación correcta en relación con lo establecido en el artículo 97 del texto refundido de la Ley del Estatuto Básico del Empleado Público sobre la prescripción de las faltas disciplinarias del personal empleado público:",o:["Las infracciones muy graves prescribirán a los tres años, las graves al año y las leves a los seis meses.","Las infracciones muy graves prescribirán a los tres años, las graves a los dos años y las leves al año.","Las infracciones muy graves prescribirán a los tres años, las graves a los dos años y las leves a los seis meses.","Las infracciones muy graves prescribirán a los tres años, las graves al año y las leves a los tres meses."],c:2,e:"Art. 97 TREBEP: 3 años, 2 años y 6 meses."},
+{t:"Empleo público",y:"2025",q:"¿Cuál de las siguientes NO es una sanción disciplinaria, de conformidad con el artículo 96 del texto refundido de la Ley del Estatuto Básico del Empleado Público?",o:["Suspensión firme de funciones.","Traslado forzoso con cambio de residencia.","Separación del servicio.","Deducción proporcional de retribuciones."],c:3,e:"Art. 96.1 TREBEP. La deducción proporcional de retribuciones no figura entre las sanciones."},
+{t:"Presupuestos",y:"2024",q:"Conforme al artículo 40 de la Ley 47/2003, de 26 de noviembre, General Presupuestaria, en relación con la clasificación económica de los estados de gastos, se distinguen como créditos para operaciones de capital:",o:["Los gastos de personal.","El Fondo de Contingencia.","Las transferencias corrientes.","Las inversiones reales."],c:3,e:"Art. 40 Ley 47/2003. Gastos de personal y transferencias corrientes son operaciones corrientes."},
+{t:"Igualdad",y:"2022",q:"Conforme a la Ley Orgánica 3/2007, de 22 de marzo, para la igualdad efectiva de mujeres y hombres, la situación en que se encuentra una persona que sea, haya sido o pudiera ser tratada, en atención a su sexo, de manera menos favorable que otra en situación comparable, se considera:",o:["Acoso sexual.","Acoso por razón de sexo.","Discriminación directa por razón de sexo.","Discriminación indirecta por razón de sexo."],c:2,e:"Art. 6.1 LO 3/2007."}
+];
+
+var L = ["a","b","c","d"];
+var answers = [], idx = 0;
+var $ = function (id) { return document.getElementById(id); };
+
+function track(name) {
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: name, title: name, event: true }); } catch (e) {}
+}
+function fmt(n) { return (Math.round(n * 100) / 100).toLocaleString("es-ES", { maximumFractionDigits: 2 }); }
+
+function show(id) { ["intro", "quiz", "result"].forEach(function (s) { $(s).hidden = s !== id; }); window.scrollTo(0, 0); }
+
+function render() {
+  var item = Q[idx];
+  $("count").textContent = "Pregunta " + (idx + 1) + " de " + Q.length;
+  $("src").textContent = "Examen " + item.y;
+  $("trackfill").style.width = (idx / Q.length * 100) + "%";
+  $("topic").textContent = item.t;
+  $("question").textContent = item.q;
+  var box = $("opts"); box.textContent = "";
+  item.o.forEach(function (txt, i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "opt";
+    var k = document.createElement("b"); k.textContent = L[i];
+    var s = document.createElement("span"); s.textContent = txt;
+    b.appendChild(k); b.appendChild(s);
+    b.addEventListener("click", function () { answer(i); });
+    box.appendChild(b);
+  });
+}
+
+function answer(i) {
+  answers[idx] = i;
+  idx++;
+  if (idx < Q.length) render(); else finish();
+}
+
+function finish() {
+  var ok = 0, bad = 0, blank = 0, weak = {};
+  var rev = $("r-review"); rev.textContent = "";
+  Q.forEach(function (item, i) {
+    var a = answers[i], state;
+    if (a === null || a === undefined) { blank++; state = "blank"; }
+    else if (a === item.c) { ok++; state = "ok"; }
+    else { bad++; state = "bad"; }
+    if (state !== "ok") weak[item.t] = (weak[item.t] || 0) + 1;
+    var d = document.createElement("div"); d.className = "rev " + state;
+    var tag = document.createElement("span"); tag.className = "tag";
+    tag.textContent = state === "ok" ? "Acierto" : state === "bad" ? "Fallo" : "En blanco";
+    var p1 = document.createElement("p"); p1.textContent = (i + 1) + ". " + item.q;
+    var p2 = document.createElement("p");
+    p2.textContent = "Correcta: " + L[item.c] + ") " + item.o[item.c] + (state === "bad" ? "  ·  Tu respuesta: " + L[a] + ")" : "");
+    var p3 = document.createElement("p"); p3.className = "exp"; p3.textContent = item.e + " (Examen de " + item.y + ")";
+    d.appendChild(tag); d.appendChild(p1); d.appendChild(p2); d.appendChild(p3);
+    rev.appendChild(d);
+  });
+  var net = ok - bad / 3;
+  var est = net * (TOTAL_PRIMERA / Q.length);
+  var diff = est - CORTE;
+  $("r-net").textContent = fmt(net);
+  $("r-ok").textContent = ok; $("r-bad").textContent = bad; $("r-blank").textContent = blank;
+  $("r-est").textContent = "Tú · " + fmt(Math.max(est, 0)) + " de 60";
+  $("r-msg").textContent = diff >= 0
+    ? "Si rindieras igual en psicotécnicos, sacarías unos " + fmt(est) + " de 60 en la primera parte: " + fmt(diff) + " puntos por encima del corte de 2026."
+    : "Si rindieras igual en psicotécnicos, sacarías unos " + fmt(Math.max(est, 0)) + " de 60 en la primera parte. Te faltan unos " + fmt(-diff) + " puntos para el corte de 2026.";
+  $("r-fill").style.width = Math.max(0, Math.min(100, est / TOTAL_PRIMERA * 100)) + "%";
+  $("r-cut").style.left = (CORTE / TOTAL_PRIMERA * 100) + "%";
+
+  var wl = $("r-weak"); wl.textContent = "";
+  var keys = Object.keys(weak).sort(function (x, y) { return weak[y] - weak[x]; });
+  if (!keys.length) { var li0 = document.createElement("li"); li0.textContent = "Ninguna: has acertado las 25. Ahora toca mantenerlo hasta el examen."; wl.appendChild(li0); }
+  keys.forEach(function (k) {
+    var li = document.createElement("li");
+    var n = document.createElement("strong"); n.textContent = k; n.style.fontWeight = "500";
+    var c = document.createElement("span"); c.textContent = weak[k] + (weak[k] === 1 ? " pregunta" : " preguntas");
+    li.appendChild(n); li.appendChild(c); wl.appendChild(li);
+  });
+
+  var params = new URLSearchParams(window.location.search);
+  params.set("nota", fmt(net));
+  $("r-reserva").href = TALLY_RESERVA + "?" + params.toString();
+  $("r-reserva").target = "_blank"; $("r-reserva").rel = "noopener";
+  track("diagnostico-fin");
+  show("result");
+}
+
+$("start").addEventListener("click", function () { answers = []; idx = 0; track("diagnostico-inicio"); render(); show("quiz"); });
+$("skip").addEventListener("click", function () { answer(null); });
+$("again").addEventListener("click", function () { answers = []; idx = 0; render(); show("quiz"); });
+$("r-reserva").addEventListener("click", function () { track("reserva-clic"); });
+</script>
+<script data-goatcounter="https://aprueba-auxiliar.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

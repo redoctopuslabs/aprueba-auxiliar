@@ -282,9 +282,9 @@ a{color:#0E1A2B}a:hover{color:#C2410C}
 </div>
 
 <script>
-// 1. Pega aquí los enlaces de tus formularios de Tally.
-var TALLY_DIAGNOSTICO = "https://tally.so/r/XXXXXX";
-var TALLY_RESERVA = "https://tally.so/r/YYYYYY";
+// Destinos: el diagnóstico es una página de esta web; la reserva es el formulario de Tally.
+var TALLY_DIAGNOSTICO = "diagnostico.html";
+var TALLY_RESERVA = "https://tally.so/r/Vpj756";
 // 2. Reenvía los parámetros UTM de la visita a Tally (campos ocultos utm_source, utm_medium, utm_campaign).
 (function () {
   var q = window.location.search;
@@ -292,8 +292,7 @@ var TALLY_RESERVA = "https://tally.so/r/YYYYYY";
     var links = document.querySelectorAll("a." + cls);
     for (var i = 0; i < links.length; i++) {
       links[i].href = url + q;
-      links[i].target = "_blank";
-      links[i].rel = "noopener";
+      if (url.indexOf("http") === 0) { links[i].target = "_blank"; links[i].rel = "noopener"; }
     }
   }
   enlazar("tally-diagnostico", TALLY_DIAGNOSTICO);
